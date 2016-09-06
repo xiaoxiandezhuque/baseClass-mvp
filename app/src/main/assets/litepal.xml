@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <!--数据库的名字-->
+    <dbname value="demo" ></dbname>
+    <!--数据库的版本号-->
+    <version value="1" ></version>
+
+    <list>
+
+        <mapping class ="com.xuhong.baseclass.bean.UserBean"></mapping>
+        <!--<mapping class="com.example.databasetest.model.News"></mapping>  输入实体类的包名加位子-->
+    </list>
+</litepal>

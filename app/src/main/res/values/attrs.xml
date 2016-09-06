@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <declare-styleable name="picandtextview">
+        <attr name="imgWidth" format="dimension" />
+        <attr name="imgHeight" format="dimension" />
+        <attr name="imgSrc" format="reference" />
+
+        <attr name="text" format="string" />
+        <attr name="textSize" format="dimension" />
+        <attr name="textColor" format="color" />
+
+    </declare-styleable>
+
+    <declare-styleable name="title_view">
+
+        <attr name="titleText" format="string" />
+        <attr name="rightText" format="string" />
+        <attr name="rightImg" format="reference" />
+    </declare-styleable>
+
+
+</resources>
