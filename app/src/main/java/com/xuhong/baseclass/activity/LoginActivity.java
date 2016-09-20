@@ -7,6 +7,7 @@ import android.widget.EditText;
 import com.xuhong.baseclass.R;
 import com.xuhong.baseclass.iview.ILoginView;
 import com.xuhong.baseclass.presenter.LoginPresenter;
+import com.xuhong.baseclass.service.MyService;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -26,7 +27,7 @@ public class LoginActivity extends BaseActivity implements ILoginView {
     Button btnLogin;
 
 
-    private LoginPresenter  mLoginPresenter;
+    private LoginPresenter mLoginPresenter;
 
     @Override
     protected int getLayoutId() {
@@ -36,16 +37,19 @@ public class LoginActivity extends BaseActivity implements ILoginView {
     @Override
     protected void initView() {
 
-        mLoginPresenter =new LoginPresenter(this);
-        editLoginName.setText("18180646037");
+        mLoginPresenter = new LoginPresenter(this);
+        editLoginName.setText("18180641438");
         editLoginPassword.setText("123456");
+
+        Intent intent = new Intent(this, MyService.class);
+        startService(intent);
     }
 
 
     @OnClick(R.id.btn_login)
     public void onClick() {
 
-     mLoginPresenter.login(this);
+        mLoginPresenter.login(this);
     }
 
     @Override
@@ -77,7 +81,7 @@ public class LoginActivity extends BaseActivity implements ILoginView {
 
     @Override
     protected void onDestroy() {
-        if (mLoginPresenter!=null){
+        if (mLoginPresenter != null) {
             mLoginPresenter.detachView();
         }
 

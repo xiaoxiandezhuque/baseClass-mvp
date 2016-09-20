@@ -2,12 +2,8 @@ package com.xuhong.baseclass.presenter;
 
 import android.content.Context;
 
-import com.xuhong.baseclass.bean.UserBean;
 import com.xuhong.baseclass.iview.ILoginView;
-import com.xuhong.baseclass.network.AllDoThingSubscriber;
-import com.xuhong.baseclass.network.HttpApi;
-import com.xuhong.baseclass.network.OnApiListener;
-import com.xuhong.baseclass.utils.StringUtils;
+import com.xuhong.baseclass.view.LoadingDialog;
 
 /**
  * Created by BHKJ on 2016/5/11.
@@ -19,23 +15,10 @@ public class LoginPresenter extends BasePresenter<ILoginView> {
         super(view);
     }
 
-    public void login(Context context) {
+    public void login(final Context context) {
+        LoadingDialog loadingDialog =new LoadingDialog(context);
+        loadingDialog.show();
 
-        HttpApi.getInstance().login(getView().getUserName(),
-                StringUtils.stringToMD5(getView().getUserPassword()),
-                new AllDoThingSubscriber<UserBean>(context, new OnApiListener<UserBean>() {
-                    @Override
-                    public void OnSuccess(UserBean data) {
-                       if (isViewAttached()){
-                           getView().toOtherActivity();
-                       }
-                    }
-
-                    @Override
-                    public void OnFail(String error) {
-
-                    }
-                }));
 
     }
 

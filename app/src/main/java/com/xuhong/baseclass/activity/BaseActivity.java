@@ -14,7 +14,6 @@ import butterknife.ButterKnife;
 public abstract class BaseActivity extends AppCompatActivity {
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,12 +23,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         initView();
     }
 
-        protected  void setStatusBarColor(){
-            StatusBarUtils.setColor(this, Color.parseColor("#f02e2e"));
-        }
+    protected void setStatusBarColor() {
+        StatusBarUtils.setColor(this, Color.parseColor("#f02e2e"));
+    }
 
-    protected  abstract  int  getLayoutId();
-    protected  abstract  void  initView();
+    protected abstract int getLayoutId();
+
+    protected abstract void initView();
 
 
 }
