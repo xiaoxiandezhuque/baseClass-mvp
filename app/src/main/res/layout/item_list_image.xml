@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xuhong.baseclass.template.selectmorepicture.view.SquareLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="false"
+        android:contentDescription="@string/app_name"
+        android:focusable="false"
+        android:scaleType="centerCrop"
+        android:src="@color/grey_200" />
+
+    <View
+        android:id="@+id/lay_mask"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_alpha_80"
+        android:clickable="false"
+        android:focusable="false" />
+
+    <ImageView
+        android:id="@+id/cb_selected"
+        android:layout_width="@dimen/size_20"
+        android:layout_height="@dimen/size_20"
+        android:layout_gravity="top|right"
+        android:layout_margin="4dp"
+        android:clickable="false"
+        android:contentDescription="@string/app_name"
+        android:focusable="false"
+        android:scaleType="centerInside"
+        android:src="@drawable/cb_select_image_check_selector" />
+</com.xuhong.baseclass.template.selectmorepicture.view.SquareLayout>

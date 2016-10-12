@@ -17,6 +17,8 @@ import com.xuhong.baseclass.utils.StringUtils;
 
 /**
  * Created by BHKJ on 2016/8/30.
+ *
+ * 自己定义的actionbar  。。。
  */
 
 public class TitleView extends RelativeLayout {

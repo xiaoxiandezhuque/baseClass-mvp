@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xuhong.baseclass.template.selectmorepicture.view.SquareLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f1f1f1"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_cam"
+        android:layout_width="@dimen/size_36"
+        android:layout_height="@dimen/size_36"
+        android:layout_gravity="center"
+        android:contentDescription="@string/app_name"
+        android:src="@mipmap/ic_tweet_select_picture_camera" />
+</com.xuhong.baseclass.template.selectmorepicture.view.SquareLayout>

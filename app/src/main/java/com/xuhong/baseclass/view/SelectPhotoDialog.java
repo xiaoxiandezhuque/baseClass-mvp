@@ -35,6 +35,7 @@ import butterknife.OnClick;
 
 /**
  * Created by BHKJ on 2016/8/8.
+ * 跳转选择图片的   dialog  还不完善
  */
 
 public class SelectPhotoDialog {

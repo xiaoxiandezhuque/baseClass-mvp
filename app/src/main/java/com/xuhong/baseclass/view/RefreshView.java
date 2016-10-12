@@ -23,6 +23,7 @@ import com.xuhong.baseclass.utils.DensityUtils;
 
 /**
  * Created by BHKJ on 2016/6/3.
+ * 基于recyclerview的下拉刷新
  */
 
 public class RefreshView extends FrameLayout {

@@ -5,12 +5,6 @@
     android:layout_height="match_parent"
     >
 
-    <ImageView
-        android:id="@+id/iv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher" />
-
     <TextView
         android:id="@+id/tv"
         android:layout_width="wrap_content"
@@ -19,4 +13,10 @@
         android:textColor="#262626"
         android:textSize="16sp"
         tools:text="aaa" />
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher" />
 </merge>

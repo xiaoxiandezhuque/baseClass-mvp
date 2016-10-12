@@ -5,19 +5,21 @@ import android.widget.TextView;
 
 import com.xuhong.baseclass.R;
 
-import java.util.List;
-
 
 /**
  * Created by BHKJ on 2016/6/13.
  */
 
 //主界面的adapter
-public class MainAdapter extends BaseAdapter {
+public class MainAdapter extends BaseAdapter<String> {
 
 
-    public MainAdapter(Context mContent, List<String> mData) {
-        super(mContent, mData);
+    public MainAdapter(Context context) {
+        super(context);
+    }
+
+    public MainAdapter(Context context, boolean isOpenAddMore) {
+        super(context, isOpenAddMore);
     }
 
     @Override
@@ -25,17 +27,10 @@ public class MainAdapter extends BaseAdapter {
         return R.layout.item_main;
     }
 
-
     @Override
-    public void onMyBindViewHolder(ViewHolder holder, int position) {
-        String str = (String) mData.get(position);
-
-        ((TextView)holder.getView(R.id.tv_name)).setText(str);
-
+    protected void onMyBindViewHolder(ViewHolder holder, int position, String data) {
+        ((TextView) holder.getView(R.id.tv_name)).setText(data);
     }
-
-
-
 
 
 }

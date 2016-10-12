@@ -7,7 +7,8 @@ import android.widget.EditText;
 import com.xuhong.baseclass.R;
 import com.xuhong.baseclass.iview.ILoginView;
 import com.xuhong.baseclass.presenter.LoginPresenter;
-import com.xuhong.baseclass.service.MyService;
+import com.xuhong.baseclass.template.selectmorepicture.view.TweetPicturesPreviewer;
+import com.xuhong.baseclass.template.selectmorepicture.TweetPublishContract;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -16,7 +17,7 @@ import butterknife.OnClick;
  * Created by BHKJ on 2016/8/3.
  */
 
-public class LoginActivity extends BaseActivity implements ILoginView {
+public class LoginActivity extends BaseActivity implements ILoginView,TweetPublishContract.View {
 
 
     @BindView(R.id.edit_login_name)
@@ -25,6 +26,8 @@ public class LoginActivity extends BaseActivity implements ILoginView {
     EditText editLoginPassword;
     @BindView(R.id.btn_login)
     Button btnLogin;
+    @BindView(R.id.recycler_images)
+    TweetPicturesPreviewer mLayImages;
 
 
     private LoginPresenter mLoginPresenter;
@@ -41,15 +44,18 @@ public class LoginActivity extends BaseActivity implements ILoginView {
         editLoginName.setText("18180641438");
         editLoginPassword.setText("123456");
 
-        Intent intent = new Intent(this, MyService.class);
-        startService(intent);
+//        Intent intent = new Intent(this, MyService.class);
+//        startService(intent);
     }
 
 
     @OnClick(R.id.btn_login)
     public void onClick() {
 
-        mLoginPresenter.login(this);
+
+        mLayImages.onLoadMoreClick();
+//        SelectImageActivity.showImage(getContext(), 9, true, mImageAdapter.getPaths(), this);
+//        mLoginPresenter.login(this);
     }
 
     @Override
@@ -86,5 +92,26 @@ public class LoginActivity extends BaseActivity implements ILoginView {
         }
 
         super.onDestroy();
+    }
+
+
+    @Override
+    public String getContent() {
+        return null;
+    }
+
+    @Override
+    public void setContent(String content) {
+
+    }
+
+    @Override
+    public String[] getImages() {
+        return mLayImages.getPaths();
+    }
+
+    @Override
+    public void setImages(String[] paths) {
+        mLayImages.set(paths);
     }
 }

@@ -16,6 +16,8 @@ import com.xuhong.baseclass.R;
 
 /**
  * Created by BHKJ on 2016/8/25.
+ *
+ * 图片加文字的显示  图片在上  文字在下
  */
 
 public class PicAndTextView extends LinearLayout {

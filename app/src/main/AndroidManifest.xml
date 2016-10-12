@@ -48,6 +48,7 @@
 
             </intent-filter>
         </activity>
+
         <!--glide配置-->
         <meta-data
             android:name="com.xuhong.baseclass.model.GlideModelConfig"
@@ -66,6 +67,15 @@
                     android:scheme="examplec" />
             </intent-filter>
         </activity>
+
+
+        <activity
+            android:name=".template.selectmorepicture.activity.ImageGalleryActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".template.selectmorepicture.activity.SelectImageActivity"
+            android:screenOrientation="portrait" />
 
         <service android:name=".service.MyService" />
 

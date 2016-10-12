@@ -8,7 +8,6 @@ import android.os.Build;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -16,8 +15,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import static com.xuhong.baseclass.utils.StreamUtils.close;
+
 /**
  * Created by JuQiu on 16/7/21.
+ * 图片压缩。。
  */
 @SuppressWarnings("WeakerAccess")
 public class PicturesCompress {
@@ -176,7 +178,7 @@ public class PicturesCompress {
 
 		// if the in file size <= maxSize, we can copy to savePath
 		if (sourceFile.length() <= maxSize) {
-			return copyFile(sourceFile, saveFile);
+			return StreamUtils.copyFile(sourceFile, saveFile);
 		}
 
 		// create new temp file
@@ -234,7 +236,7 @@ public class PicturesCompress {
 				return false;
 		} catch (IOException e) {
 			e.printStackTrace();
-			close(outputStream);
+			StreamUtils.close(outputStream);
 			return false;
 		} finally {
 			bitmap.recycle();
@@ -283,45 +285,5 @@ public class PicturesCompress {
 		}
 	}
 
-	public static void close(Closeable... closeables) {
-		if (closeables == null || closeables.length == 0)
-			return;
-		for (Closeable closeable : closeables) {
-			if (closeable != null) {
-				try {
-					closeable.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-	}
-
-	public static boolean copyFile(final File srcFile, final File saveFile) {
-		File parentFile = saveFile.getParentFile();
-		if (!parentFile.exists()) {
-			if (!parentFile.mkdirs())
-				return false;
-		}
-
-		BufferedInputStream inputStream = null;
-		BufferedOutputStream outputStream = null;
-		try {
-			inputStream = new BufferedInputStream(new FileInputStream(srcFile));
-			outputStream = new BufferedOutputStream(new FileOutputStream(saveFile));
-			byte[] buffer = new byte[1024 * 4];
-			int len;
-			while ((len = inputStream.read(buffer)) != -1) {
-				outputStream.write(buffer, 0, len);
-			}
-			outputStream.flush();
-		} catch (IOException e) {
-			e.printStackTrace();
-			return false;
-		} finally {
-			close(inputStream, outputStream);
-		}
-		return true;
-	}
 
 }

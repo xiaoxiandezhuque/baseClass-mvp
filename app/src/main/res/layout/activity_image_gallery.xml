@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <com.xuhong.baseclass.template.selectmorepicture.view.PreviewerViewPager
+        android:id="@+id/vp_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/tv_index"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/lay_16"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_14"
+        tools:text="1/10" />
+
+    <net.qiujuer.genius.ui.widget.ImageView
+        android:id="@+id/iv_save"
+        android:layout_width="@dimen/size_36"
+        android:layout_height="@dimen/size_36"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/lay_16"
+        android:clickable="true"
+        android:src="@mipmap/btn_download" />
+</RelativeLayout>

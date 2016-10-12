@@ -25,7 +25,7 @@ public class MainActivity extends BaseActivity implements IMainView {
     RefreshView mRefreshview;
 
     private RecyclerView  mRecyclerView;
-    private BaseAdapter  mAdapter;
+    private BaseAdapter mAdapter;
     private List<String> mData;
 
     private MainPresenter  mMainPresenter;
@@ -44,7 +44,7 @@ public class MainActivity extends BaseActivity implements IMainView {
             mData.add("第"+i+"条");
         }
 
-        mAdapter = new MainAdapter(this,mData);
+        mAdapter = new MainAdapter(this);
 
         mRecyclerView = mRefreshview.getRecycleView();
         mRecyclerView.setHasFixedSize(true);

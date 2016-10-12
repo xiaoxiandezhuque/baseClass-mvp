@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 
 /**
- * Created by 49039 on 2016/5/3.
+ * Created by 49039 on 2016/5/3.  不能滑动的viewpager
  */
 public class NoScrollViewPager extends ViewPager {
     public NoScrollViewPager(Context context) {

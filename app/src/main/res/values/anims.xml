@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="popup_anim_style_alpha">
+        <item name="android:windowEnterAnimation">@anim/popup_select_image_show</item>
+        <item name="android:windowExitAnimation">@anim/popup_select_image_hide</item>
+    </style>
+</resources>

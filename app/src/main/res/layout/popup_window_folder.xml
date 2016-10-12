@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lay_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_alpha_112"
+    android:paddingBottom="@dimen/size_116">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_popup_folder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white" />
+</RelativeLayout>
