@@ -1,14 +1,17 @@
 package com.xuhong.baseclass.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.telephony.TelephonyManager;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.xuhong.baseclass.R;
 import com.xuhong.baseclass.iview.ILoginView;
 import com.xuhong.baseclass.presenter.LoginPresenter;
-import com.xuhong.baseclass.template.selectmorepicture.view.TweetPicturesPreviewer;
 import com.xuhong.baseclass.template.selectmorepicture.TweetPublishContract;
+import com.xuhong.baseclass.template.selectmorepicture.view.TweetPicturesPreviewer;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -41,8 +44,10 @@ public class LoginActivity extends BaseActivity implements ILoginView,TweetPubli
     protected void initView() {
 
         mLoginPresenter = new LoginPresenter(this);
-        editLoginName.setText("18180641438");
-        editLoginPassword.setText("123456");
+//        editLoginName.setText("18180641438");
+//        editLoginPassword.setText("123456");
+        String a = "手机型号：" + android.os.Build.MODEL + ",系统版本：" + Build.VERSION.RELEASE + ",IMEI:"
+                + ((TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId();
 
 //        Intent intent = new Intent(this, MyService.class);
 //        startService(intent);
@@ -54,6 +59,7 @@ public class LoginActivity extends BaseActivity implements ILoginView,TweetPubli
 
 
         mLayImages.onLoadMoreClick();
+
 //        SelectImageActivity.showImage(getContext(), 9, true, mImageAdapter.getPaths(), this);
 //        mLoginPresenter.login(this);
     }
@@ -90,7 +96,7 @@ public class LoginActivity extends BaseActivity implements ILoginView,TweetPubli
         if (mLoginPresenter != null) {
             mLoginPresenter.detachView();
         }
-
+        mLayImages.destroy();
         super.onDestroy();
     }
 
@@ -114,4 +120,6 @@ public class LoginActivity extends BaseActivity implements ILoginView,TweetPubli
     public void setImages(String[] paths) {
         mLayImages.set(paths);
     }
+
+
 }

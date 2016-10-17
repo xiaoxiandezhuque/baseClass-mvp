@@ -31,14 +31,15 @@ import com.xuhong.baseclass.adapter.OnItemClickListener;
 import com.xuhong.baseclass.template.selectmorepicture.ImageFolderPopupWindow;
 import com.xuhong.baseclass.template.selectmorepicture.ImageLoaderListener;
 import com.xuhong.baseclass.template.selectmorepicture.MediaStoreDataFactory;
+import com.xuhong.baseclass.template.selectmorepicture.SelectImageContract;
+import com.xuhong.baseclass.template.selectmorepicture.Util;
+import com.xuhong.baseclass.template.selectmorepicture.activity.ImageGalleryActivity;
+import com.xuhong.baseclass.template.selectmorepicture.activity.SelectImageActivity;
 import com.xuhong.baseclass.template.selectmorepicture.adapter.ImageAdapter;
 import com.xuhong.baseclass.template.selectmorepicture.adapter.ImageFolderAdapter;
+import com.xuhong.baseclass.template.selectmorepicture.adapter.SpaceGridItemDecoration;
 import com.xuhong.baseclass.template.selectmorepicture.bean.Image;
 import com.xuhong.baseclass.template.selectmorepicture.bean.ImageFolder;
-import com.xuhong.baseclass.template.selectmorepicture.activity.SelectImageActivity;
-import com.xuhong.baseclass.template.selectmorepicture.SelectImageContract;
-import com.xuhong.baseclass.template.selectmorepicture.adapter.SpaceGridItemDecoration;
-import com.xuhong.baseclass.template.selectmorepicture.Util;
 
 import net.qiujuer.genius.ui.Ui;
 
@@ -167,7 +168,7 @@ public class SelectFragment extends Fragment implements SelectImageContract.View
             case R.id.btn_preview:
                 if (mSelectedImage.size() > 0) {
 
-//                    ImageGalleryActivity.show(getActivity(), Util.toArray(mSelectedImage), 0, false);
+                    ImageGalleryActivity.show(getActivity(), Util.toArray(mSelectedImage), 0, false);
                 }
                 break;
             case R.id.btn_title_select:
