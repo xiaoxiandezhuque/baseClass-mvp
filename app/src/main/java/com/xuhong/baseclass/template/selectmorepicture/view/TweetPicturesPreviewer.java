@@ -10,7 +10,7 @@ import android.view.View;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
-import com.xuhong.baseclass.activity.BaseActivity;
+import com.xuhong.baseclass.ui.activity.BaseActivity;
 import com.xuhong.baseclass.template.selectmorepicture.activity.SelectImageActivity;
 import com.xuhong.baseclass.template.selectmorepicture.adapter.TweetPicturesPreviewerItemTouchCallback;
 import com.xuhong.baseclass.template.selectmorepicture.adapter.TweetSelectImageAdapter;

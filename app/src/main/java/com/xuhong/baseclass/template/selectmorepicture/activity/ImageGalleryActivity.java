@@ -20,7 +20,8 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.xuhong.baseclass.R;
-import com.xuhong.baseclass.activity.BaseActivity;
+import com.xuhong.baseclass.presenter.BasePresenter;
+import com.xuhong.baseclass.ui.activity.BaseActivity;
 import com.xuhong.baseclass.template.selectmorepicture.AppOperator;
 import com.xuhong.baseclass.utils.PicturesCompress;
 import com.xuhong.baseclass.utils.StreamUtils;
@@ -109,8 +110,10 @@ public class ImageGalleryActivity extends BaseActivity implements ViewPager.OnPa
         onPageSelected(mCurPosition);
     }
 
-
-
+    @Override
+    protected BasePresenter createdPresenter() {
+        return null;
+    }
 
 
     @Override

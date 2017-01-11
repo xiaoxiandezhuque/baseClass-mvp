@@ -1,12 +1,15 @@
-package com.xuhong.baseclass.model;
+package com.xuhong.baseclass.model.impl;
 
+import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
 import android.net.Uri;
 import android.provider.CallLog;
 import android.provider.ContactsContract;
+import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
 
 import java.text.SimpleDateFormat;
@@ -98,7 +101,16 @@ public class PhoneContacts {
         Cursor cursor = null;
         StringBuffer stringBuffer = new StringBuffer();
         try {
-
+            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+//                return r;
+            }
             cursor = contentResolver.query(CallLog.Calls.CONTENT_URI, null, null, null, CallLog.Calls.DATE + " desc");
             while (cursor.moveToNext()) {
                 String name = cursor.getString(cursor

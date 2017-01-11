@@ -1,16 +1,15 @@
-package com.xuhong.baseclass.activity;
+package com.xuhong.baseclass.ui.activity;
 
 import android.os.Handler;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.xuhong.baseclass.R;
-import com.xuhong.baseclass.adapter.BaseAdapter;
-import com.xuhong.baseclass.adapter.MainAdapter;
-import com.xuhong.baseclass.iview.IMainView;
+import com.xuhong.baseclass.presenter.BasePresenter;
 import com.xuhong.baseclass.presenter.MainPresenter;
+import com.xuhong.baseclass.ui.adapter.BaseAdapter;
+import com.xuhong.baseclass.ui.adapter.MainAdapter;
+import com.xuhong.baseclass.ui.iview.IMainView;
 import com.xuhong.baseclass.view.RefreshView;
 
 import java.util.ArrayList;
@@ -47,12 +46,7 @@ public class MainActivity extends BaseActivity implements IMainView {
         mAdapter = new MainAdapter(this);
 
         mRecyclerView = mRefreshview.getRecycleView();
-        mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter);
-
-
         mRefreshview.setOnRefreshListener(new RefreshView.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -65,8 +59,21 @@ public class MainActivity extends BaseActivity implements IMainView {
                 },3000);
             }
         });
-        mRefreshview.onRefreshStart();
 
+
+    }
+
+    @Override
+    protected BasePresenter createdPresenter() {
+        return null;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mData.size()==0){
+            mRefreshview.onRefreshStart();
+        }
     }
 
     @Override

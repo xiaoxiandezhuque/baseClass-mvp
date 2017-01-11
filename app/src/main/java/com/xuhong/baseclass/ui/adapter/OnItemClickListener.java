@@ -1,4 +1,4 @@
-package com.xuhong.baseclass.adapter;
+package com.xuhong.baseclass.ui.adapter;
 
 import android.view.View;
 

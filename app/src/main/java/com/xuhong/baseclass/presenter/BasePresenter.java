@@ -9,8 +9,11 @@ import java.lang.ref.WeakReference;
 public abstract class BasePresenter<T> {
     protected Reference<T> mViewRef;
 
+
+    public BasePresenter(){
+    }
     public BasePresenter(T view){
-        mViewRef = new WeakReference<>(view);
+        attachView(view);
     }
     public void attachView(T view) {
         mViewRef = new WeakReference<>(view);

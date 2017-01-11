@@ -1,4 +1,4 @@
-package com.xuhong.baseclass.model;
+package com.xuhong.baseclass.model.impl;
 
 import android.content.Context;
 

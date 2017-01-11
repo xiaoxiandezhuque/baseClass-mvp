@@ -1,4 +1,4 @@
-package com.xuhong.baseclass.iview;
+package com.xuhong.baseclass.ui.iview;
 
 /**
  * Created by xuhong on 2016/8/7.

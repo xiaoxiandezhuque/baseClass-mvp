@@ -1,4 +1,4 @@
-package com.xuhong.baseclass.activity;
+package com.xuhong.baseclass.ui.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,7 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.xuhong.baseclass.R;
-import com.xuhong.baseclass.iview.ILoginView;
+import com.xuhong.baseclass.presenter.BasePresenter;
+import com.xuhong.baseclass.ui.iview.ILoginView;
 import com.xuhong.baseclass.presenter.LoginPresenter;
 import com.xuhong.baseclass.template.selectmorepicture.TweetPublishContract;
 import com.xuhong.baseclass.template.selectmorepicture.view.TweetPicturesPreviewer;
@@ -51,6 +52,11 @@ public class LoginActivity extends BaseActivity implements ILoginView,TweetPubli
 
 //        Intent intent = new Intent(this, MyService.class);
 //        startService(intent);
+    }
+
+    @Override
+    protected BasePresenter createdPresenter() {
+        return null;
     }
 
 

@@ -10,7 +10,8 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 
 import com.xuhong.baseclass.R;
-import com.xuhong.baseclass.activity.BaseActivity;
+import com.xuhong.baseclass.presenter.BasePresenter;
+import com.xuhong.baseclass.ui.activity.BaseActivity;
 import com.xuhong.baseclass.template.selectmorepicture.fragment.SelectFragment;
 import com.xuhong.baseclass.template.selectmorepicture.SelectImageContract;
 
@@ -231,6 +232,11 @@ public class SelectImageActivity extends BaseActivity implements EasyPermissions
         mConfig = (Config) serializable;
 
         requestExternalStorage();
+    }
+
+    @Override
+    protected BasePresenter createdPresenter() {
+        return null;
     }
 
     public static class Config implements Serializable {

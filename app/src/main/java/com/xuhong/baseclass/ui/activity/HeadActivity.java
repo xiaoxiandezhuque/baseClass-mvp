@@ -1,4 +1,4 @@
-package com.xuhong.baseclass.activity;
+package com.xuhong.baseclass.ui.activity;
 
 import android.Manifest;
 import android.content.Intent;
@@ -9,7 +9,8 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import com.xuhong.baseclass.R;
-import com.xuhong.baseclass.iview.IHeadView;
+import com.xuhong.baseclass.presenter.BasePresenter;
+import com.xuhong.baseclass.ui.iview.IHeadView;
 import com.xuhong.baseclass.utils.ImageLoaderUtils;
 import com.xuhong.baseclass.view.SelectPhotoDialog;
 
@@ -40,6 +41,11 @@ public class HeadActivity extends BaseActivity implements IHeadView {
                 , ivHead);
 
 
+    }
+
+    @Override
+    protected BasePresenter createdPresenter() {
+        return null;
     }
 
 

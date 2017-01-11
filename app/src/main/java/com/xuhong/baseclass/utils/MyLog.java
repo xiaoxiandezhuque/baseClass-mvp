@@ -8,7 +8,7 @@ import android.util.Log;
 
 public class MyLog {
 
-    private static  boolean isOpen =true;
+    private  final static  boolean isOpen =true;
 
     public static void e(String tag,String msg){
         if (isOpen){

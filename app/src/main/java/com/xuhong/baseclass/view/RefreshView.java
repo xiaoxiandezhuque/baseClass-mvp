@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
@@ -214,6 +215,9 @@ public class RefreshView extends FrameLayout {
 
         if (getChildCount() == 2) {
             mView = (RecyclerView) getChildAt(1);
+            mView.setHasFixedSize(true);
+            mView.setItemAnimator(new DefaultItemAnimator());
+            mView.setLayoutManager(new LinearLayoutManager(mContext));
             mTopView = getChildAt(0);
             mTextView = (TextView) mTopView.findViewById(R.id.refresh_textview);
             mImageView = (ImageView) mTopView.findViewById(R.id.refresh_imageview);

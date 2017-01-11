@@ -1,6 +1,6 @@
 package com.xuhong.baseclass.presenter;
 
-import com.xuhong.baseclass.iview.IMainView;
+import com.xuhong.baseclass.ui.iview.IMainView;
 
 /**
  * Created by xuhong on 2016/8/7.

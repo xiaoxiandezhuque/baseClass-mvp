@@ -1,4 +1,4 @@
-package com.xuhong.baseclass.fragment;
+package com.xuhong.baseclass.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

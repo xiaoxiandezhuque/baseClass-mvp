@@ -5,8 +5,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.xuhong.baseclass.R;
-import com.xuhong.baseclass.adapter.BaseAdapter;
-import com.xuhong.baseclass.adapter.ViewHolder;
+import com.xuhong.baseclass.ui.adapter.BaseAdapter;
+import com.xuhong.baseclass.ui.adapter.ViewHolder;
 import com.xuhong.baseclass.template.selectmorepicture.bean.ImageFolder;
 import com.xuhong.baseclass.template.selectmorepicture.ImageLoaderListener;
 

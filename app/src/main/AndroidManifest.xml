@@ -38,7 +38,7 @@
 
         <activity
             android:exported="true"
-            android:name=".activity.LoginActivity"
+            android:name=".ui.activity.LoginActivity"
             android:screenOrientation="portrait">
             <intent-filter>
 
@@ -58,7 +58,7 @@
 
         <!--设置过滤的规则，其他地方可以启动-->
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".ui.activity.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -77,8 +77,6 @@
         <activity
             android:name=".template.selectmorepicture.activity.SelectImageActivity"
             android:screenOrientation="portrait" />
-
-        <service android:name=".service.MyService" />
 
     </application>
 
