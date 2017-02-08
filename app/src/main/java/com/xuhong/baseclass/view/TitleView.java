@@ -64,7 +64,6 @@ public class TitleView extends RelativeLayout {
         }
         setRightText(rightText);
 
-
         tvBack.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

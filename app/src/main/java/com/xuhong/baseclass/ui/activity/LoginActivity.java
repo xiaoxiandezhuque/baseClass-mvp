@@ -3,16 +3,17 @@ package com.xuhong.baseclass.ui.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.os.HandlerThread;
 import android.telephony.TelephonyManager;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.xuhong.baseclass.R;
 import com.xuhong.baseclass.presenter.BasePresenter;
-import com.xuhong.baseclass.ui.iview.ILoginView;
 import com.xuhong.baseclass.presenter.LoginPresenter;
 import com.xuhong.baseclass.template.selectmorepicture.TweetPublishContract;
 import com.xuhong.baseclass.template.selectmorepicture.view.TweetPicturesPreviewer;
+import com.xuhong.baseclass.ui.iview.ILoginView;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -22,6 +23,7 @@ import butterknife.OnClick;
  */
 
 public class LoginActivity extends BaseActivity implements ILoginView,TweetPublishContract.View {
+
 
 
     @BindView(R.id.edit_login_name)
@@ -52,6 +54,11 @@ public class LoginActivity extends BaseActivity implements ILoginView,TweetPubli
 
 //        Intent intent = new Intent(this, MyService.class);
 //        startService(intent);
+
+       HandlerThread handlerThread = new HandlerThread("a");
+        handlerThread.start();
+
+
     }
 
     @Override

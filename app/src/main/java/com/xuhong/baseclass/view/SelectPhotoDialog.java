@@ -72,11 +72,7 @@ public class SelectPhotoDialog {
 
         if (!mDialog.isShowing()) {
             mDialog.show();
-//            View view = inflater.inflate(R.layout.dialog_select_photo,null,false);
             Window window = mDialog.getWindow();
-            assert window != null;
-
-
             window.setBackgroundDrawableResource(R.drawable.shape_transparent);
             View view = window.getLayoutInflater().inflate(R.layout.dialog_select_photo, null);
             window.setContentView(view);

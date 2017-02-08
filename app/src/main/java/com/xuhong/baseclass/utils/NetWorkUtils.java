@@ -40,6 +40,7 @@ public class NetWorkUtils {
         int nType = networkInfo.getType();
         if (nType == ConnectivityManager.TYPE_MOBILE) {
             String extraInfo = networkInfo.getExtraInfo();
+
             if(!StringUtils.isEmpty(extraInfo)){
                 if (extraInfo.toLowerCase().equals("cmnet")) {
                     netType = NETTYPE_CMNET;
