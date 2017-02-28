@@ -27,7 +27,6 @@ import com.bumptech.glide.DrawableRequestBuilder;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.xuhong.baseclass.R;
-import com.xuhong.baseclass.ui.adapter.OnItemClickListener;
 import com.xuhong.baseclass.template.selectmorepicture.ImageFolderPopupWindow;
 import com.xuhong.baseclass.template.selectmorepicture.ImageLoaderListener;
 import com.xuhong.baseclass.template.selectmorepicture.MediaStoreDataFactory;

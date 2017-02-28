@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.xuhong.baseclass.R;
+import com.xuhong.baseclass.ui.adapter.holder.ViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +34,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter {
 
     protected final Context mContext;
 
-    private boolean isHasMore = false;
+    private boolean isHasMore = true;
 
     private OnLoadMoreListener mListener;
 
@@ -108,7 +109,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter {
             @Override
             public void onClick(View v) {
                 if (listener != null) {
-                    listener.onClick(v, position);
+                    listener.onClick(v, position,mData.get(position));
                 }
             }
         });
@@ -126,6 +127,12 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter {
 
 
     private void initAddMoreLayout(ViewHolder viewHolder) {
+        if (ivLoading == null) {
+            ivLoading = viewHolder.getView(R.id.iv_loading);
+        }
+        if (tvMore == null) {
+            tvMore = viewHolder.getView(R.id.tv_more);
+        }
         if (isHasMore && mData.size() != 0) {
             viewHolder.getConvertView().setVisibility(View.VISIBLE);
             if (animation == null) {
@@ -134,23 +141,17 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter {
                 animation.setInterpolator(new LinearInterpolator());
                 animation.setRepeatCount(-1);
             }
-            if (ivLoading == null) {
-                ivLoading = viewHolder.getView(R.id.iv_loading);
-            }
+
             ivLoading.setVisibility(View.VISIBLE);
             ivLoading.setAnimation(animation);
+            tvMore.setText("加载更多...");
             if (mListener != null) {
                 mListener.onLoad();
             }
 
 
         } else if (!isHasMore && mData.size() > 0) {
-            if (ivLoading == null) {
-                ivLoading = viewHolder.getView(R.id.iv_loading);
-            }
-            if (tvMore == null) {
-                tvMore = viewHolder.getView(R.id.tv_more);
-            }
+
             viewHolder.getConvertView().setVisibility(View.VISIBLE);
             ivLoading.setVisibility(View.GONE);
             tvMore.setText("没有更多了");
@@ -166,6 +167,11 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter {
 
     public void setHasMore(boolean hasMore) {
         isHasMore = hasMore;
+        if (!hasMore){
+            ivLoading.setVisibility(View.GONE);
+            tvMore.setText("没有更多了");
+        }
+        stopAnimation();
     }
 
     public void setLoadMoreListener(OnLoadMoreListener listener) {
@@ -254,6 +260,8 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter {
 
         return null;
     }
-
+    public interface OnItemClickListener<T> {
+        void onClick(View v, int position, T data);
+    }
 
 }

@@ -42,9 +42,6 @@ public class BaseApp extends LitePalApplication {
     }
 
     public static BaseApp getInstance() {
-        if (baseApp == null) {
-            throw new NullPointerException("baseapp 为空");
-        }
         return baseApp;
     }
 

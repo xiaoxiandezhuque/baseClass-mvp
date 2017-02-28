@@ -43,6 +43,8 @@ public abstract class BaseActivity<V,T extends BasePresenter<V>> extends AppComp
 
     protected abstract void initView();
 
-    protected abstract T createdPresenter();
+    protected  T createdPresenter(){
+        return  null;
+    }
 
 }

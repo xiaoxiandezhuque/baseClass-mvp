@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.PopupWindow;
 
 import com.xuhong.baseclass.R;
-import com.xuhong.baseclass.ui.adapter.OnItemClickListener;
 import com.xuhong.baseclass.template.selectmorepicture.adapter.ImageFolderAdapter;
 import com.xuhong.baseclass.template.selectmorepicture.bean.ImageFolder;
 

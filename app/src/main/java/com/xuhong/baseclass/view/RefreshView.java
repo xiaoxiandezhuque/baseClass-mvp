@@ -263,7 +263,13 @@ public class RefreshView extends FrameLayout {
 
                         LinearLayoutManager lm = (LinearLayoutManager) mView.getLayoutManager();
                         int i = lm.findFirstVisibleItemPosition();
-                        int ii = lm.findViewByPosition(lm.findFirstVisibleItemPosition()).getTop();
+                        int ii = 0;
+                        //快速滑动的时候，有时候getTop会报空
+                        try {
+                            ii = lm.findViewByPosition(lm.findFirstVisibleItemPosition()).getTop();
+                        } catch (NullPointerException e) {
+                            ii = 10;
+                        }
 
                         isTop = Math.abs(ii) < ViewConfiguration.get(mContext).getScaledTouchSlop() && i == 0;
 

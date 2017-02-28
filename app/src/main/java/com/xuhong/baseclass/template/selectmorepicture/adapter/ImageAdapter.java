@@ -8,8 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.xuhong.baseclass.R;
-import com.xuhong.baseclass.ui.adapter.OnItemClickListener;
-import com.xuhong.baseclass.ui.adapter.ViewHolder;
+import com.xuhong.baseclass.ui.adapter.holder.ViewHolder;
 import com.xuhong.baseclass.template.selectmorepicture.bean.Image;
 import com.xuhong.baseclass.template.selectmorepicture.ImageLoaderListener;
 

@@ -7,12 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.xuhong.baseclass.presenter.BasePresenter;
+
 import butterknife.ButterKnife;
 
 /**
  * Created by BHKJ on 2016/5/10.
  */
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment<V,T extends BasePresenter<V>> extends Fragment {
     /**
      * Fragment当前状态是否可见
      */
@@ -28,18 +30,22 @@ public abstract class BaseFragment extends Fragment {
     //这个fragment是第几个
     protected int mCurIndex=-1;
 
+    protected T mPersenter;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if(mView == null) {
             mView = inflater.inflate(getLayoutId(), container, false);
-            ButterKnife.bind(this, mView);
+
             Bundle bundle = getArguments();
             if (bundle != null) {
                 mCurIndex = bundle.getInt("name");
             }
             isPrepared = true;
             if (isVisible){
+                ButterKnife.bind(this, mView);
+                mPersenter= createdPresenter();
                 lazyLoad();
                 mHasLoadedOnce = true;
             }
@@ -74,6 +80,8 @@ public abstract class BaseFragment extends Fragment {
         if (!isPrepared || !isVisible || mHasLoadedOnce) {
             return;
         }
+        ButterKnife.bind(this, mView);
+        mPersenter= createdPresenter();
         lazyLoad();
         mHasLoadedOnce = true;
     }
@@ -82,6 +90,19 @@ public abstract class BaseFragment extends Fragment {
      * 不可见
      */
     protected void onInvisible() {
+    }
+
+    protected  T createdPresenter(){
+        return  null;
+    }
+
+
+    @Override
+    public void onDestroy() {
+        if (mPersenter!=null){
+            mPersenter.detachView();
+        }
+        super.onDestroy();
     }
 
     /**

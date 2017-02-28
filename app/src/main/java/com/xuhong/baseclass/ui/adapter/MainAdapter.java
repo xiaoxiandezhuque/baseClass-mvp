@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.TextView;
 
 import com.xuhong.baseclass.R;
+import com.xuhong.baseclass.ui.adapter.holder.ViewHolder;
 
 
 /**
