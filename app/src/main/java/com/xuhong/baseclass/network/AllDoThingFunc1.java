@@ -18,7 +18,7 @@ public class AllDoThingFunc1<T extends DataSupport> implements Func1<HttpResult<
         Log.e("tHttpResult", tHttpResult.getStatus());
         if (!tHttpResult.getStatus().equals("success")) {
 
-            throw new ApiException(100);
+            throw new ApiException(tHttpResult.getMsg());
         }
 
         T result = tHttpResult.getData();
